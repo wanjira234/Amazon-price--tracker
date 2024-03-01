@@ -17,15 +17,15 @@ price = soup.find("span", class_="aok-offscreen").getText()
 currency = price.split("$")[1]
 float_currency = float(currency)
 # print(float_currency)
-MY_EMAIL = "kyra342@outlook.com"
-MY_PASSWORD = "eppy@kiruri"
+MY_EMAIL = "example@outlook.com"
+MY_PASSWORD = "your_password"
 if float_currency < 100:
     with smtplib.SMTP("smtp.office365.com", port=587) as connection:
         connection.starttls()
         result = connection.login(MY_EMAIL, MY_PASSWORD)
         connection.sendmail(
             from_addr=MY_EMAIL,
-            to_addrs="eppydev21@gmail.com",
+            to_addrs="your_email@gmail.com",
             msg=f"Subject: AMAZON PRICE DEALS\n\n the price is currently:{float_currency} go now to amazon")
 
 
